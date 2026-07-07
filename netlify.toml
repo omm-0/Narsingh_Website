@@ -1,0 +1,4 @@
+[build]
+  base = "narsingh-kitchen"
+  publish = "dist"
+  command = "npm run build"
