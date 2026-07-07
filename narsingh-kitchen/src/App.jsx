@@ -196,7 +196,8 @@ const Footer = ({ navigate }) => (
           <ul className="space-y-4">
             <li><button onClick={() => {navigate('about'); window.scrollTo(0,0);}} className="text-gray-400 hover:text-white transition-colors text-sm">Our Story</button></li>
             <li><button onClick={() => {navigate('contact'); window.scrollTo(0,0);}} className="text-gray-400 hover:text-white transition-colors text-sm">Contact & Location</button></li>
-            <li><a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</a></li>
+            <li><button onClick={() => {navigate('privacy'); window.scrollTo(0,0);}} className="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</button></li>
+            <li><button onClick={() => {navigate('terms'); window.scrollTo(0,0);}} className="text-gray-400 hover:text-white transition-colors text-sm">Terms & Conditions</button></li>
           </ul>
         </div>
 
@@ -747,6 +748,159 @@ const ContactPage = () => (
   </div>
 );
 
+const LegalPage = ({ title, subtitle, intro, sections }) => (
+  <div className="w-full pt-20">
+    <section className="py-20 bg-[#FDFBF7]">
+      <div className="max-w-5xl mx-auto px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <p className="text-[#6B111A] text-sm uppercase tracking-widest font-semibold mb-3">Legal Information</p>
+          <h2 className="text-4xl md:text-5xl font-serif text-[#1C1C1C] leading-tight">{title}</h2>
+          <p className="text-[#595959] text-lg mt-6 max-w-3xl mx-auto">{subtitle}</p>
+          <p className="text-sm text-[#595959] mt-4">{intro}</p>
+        </div>
+
+        <div className="bg-white border border-[#EAE6DF] shadow-sm divide-y divide-[#EAE6DF]">
+          {sections.map((section, index) => (
+            <div key={index} className="p-8 md:p-10">
+              <h3 className="text-xl font-serif text-[#1C1C1C] mb-4">{section.title}</h3>
+              {Array.isArray(section.content) ? (
+                <ul className="space-y-3 text-[#595959] leading-relaxed">
+                  {section.content.map((item, itemIndex) => (
+                    <li key={itemIndex}>{item}</li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="text-[#595959] leading-relaxed">{section.content}</p>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </div>
+);
+
+const PrivacyPage = () => (
+  <LegalPage
+    title="Privacy Policy"
+    subtitle="We respect your privacy and are committed to protecting the personal information you share with us."
+    intro="Effective Date: 07 July 2026 | Website: narsinghkitchen.in | Business Name: Narsingh Kitchens & Tiffin"
+    sections={[
+      {
+        title:"Introduction",
+        content:"Narsingh Kitchens & Tiffin values your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, store, and protect your data when you use our website and future mobile application."
+      },
+      {
+        title:"Information We Collect",
+        content:[
+          "Name, phone number, email address, delivery address, service inquiry, order details, feedback, and WhatsApp communication.",
+          "Device information such as browser type, IP address, and cookies if enabled."
+        ]
+      },
+      {
+        title:"Purpose of Collection",
+        content:"We collect this information to process food orders, manage tiffin subscriptions, deliver products, respond to inquiries, improve services, communicate order updates, and provide customer support."
+      },
+      {
+        title:"Payment Information",
+        content:"Payments are processed through secure third-party payment gateways. We do not store your UPI PIN, banking credentials, or complete payment card details."
+      },
+      {
+        title:"Cookies and Third-Party Services",
+        content:[
+          "The website may use essential cookies to improve performance, remember user preferences, and enhance your browsing experience.",
+          "We may use services such as Google Maps, WhatsApp, email providers, and secure payment gateways, which have their own privacy policies."
+        ]
+      },
+      {
+        title:"Data Sharing and Security",
+        content:[
+          "Customer information is never sold or rented. It may be shared only with delivery partners, payment providers, or authorities when legally required.",
+          "We implement reasonable technical and organizational measures to protect your data from unauthorized access, alteration, or disclosure. No internet transmission is completely secure."
+        ]
+      },
+      {
+        title:"Retention, Children, and User Rights",
+        content:[
+          "Customer information is retained only as long as necessary for order fulfillment, legal obligations, or customer support.",
+          "Our services are not intended for children under 18 years of age without parental supervision.",
+          "You may request correction, update, or deletion of your personal information by contacting our support team."
+        ]
+      },
+      {
+        title:"Updates and Contact",
+        content:[
+          "This Privacy Policy may be updated periodically. Continued use of the website constitutes acceptance of the revised policy.",
+          "For questions or requests, contact us at nksupport@gmail.com or +91 70006 25689."
+        ]
+      }
+    ]}
+  />
+);
+
+const TermsPage = () => (
+  <LegalPage
+    title="Terms & Conditions"
+    subtitle="By using our website, you agree to the terms outlined below for ordering, delivery, subscriptions, and support services."
+    intro="Effective Date: 07 July 2026 | Website: narsinghkitchen.in | Business Name: Narsingh Kitchens & Tiffin"
+    sections={[
+      {
+        title:"Acceptance of Terms",
+        content:"By accessing or using the website, users agree to comply with these Terms & Conditions."
+      },
+      {
+        title:"Services Offered",
+        content:"We offer fast food ordering, monthly tiffin subscription, whole spices purchase, customer support, and future mobile application services."
+      },
+      {
+        title:"Eligibility and Orders",
+        content:[
+          "Users must provide accurate information while placing orders or submitting inquiries.",
+          "Orders are subject to availability and confirmation. We reserve the right to refuse or cancel orders in exceptional circumstances."
+        ]
+      },
+      {
+        title:"Pricing, Payments, and Delivery",
+        content:[
+          "Prices may change without prior notice. Promotional offers are valid only during the specified period.",
+          "Accepted payment methods include UPI, cash on delivery, net banking, and supported digital wallets.",
+          "Estimated delivery times are approximate and may vary due to weather, traffic, festivals, or operational conditions."
+        ]
+      },
+      {
+        title:"Subscriptions and Products",
+        content:[
+          "Subscription plans are available monthly. Delivery schedules and menu may vary based on operational requirements.",
+          "Product images are for representation purposes. Actual packaging or appearance may differ slightly."
+        ]
+      },
+      {
+        title:"Cancellation, Refunds, and Intellectual Property",
+        content:[
+          "Cancellation requests are accepted only before food preparation or dispatch begins.",
+          "Refunds are processed only in eligible cases as defined in the Refund Policy.",
+          "All logos, graphics, website content, text, branding, and images are the intellectual property of Narsingh Kitchens & Tiffin and may not be copied without written permission."
+        ]
+      },
+      {
+        title:"Website Usage and Liability",
+        content:[
+          "Users must not misuse the website, attempt unauthorized access, upload malicious code, or interfere with website functionality.",
+          "The company shall not be liable for indirect, incidental, or consequential damages arising from use of the website or services."
+        ]
+      },
+      {
+        title:"External Links, Changes, and Governing Law",
+        content:[
+          "The website may contain links to third-party services. We are not responsible for their content or privacy practices.",
+          "These Terms & Conditions may be modified at any time. Updated versions will be published on the website.",
+          "These terms shall be governed by the laws of India and any disputes shall fall under the jurisdiction of the competent courts in Bhopal, Madhya Pradesh."
+        ]
+      }
+    ]}
+  />
+);
+
 export default function App() {
   const [currentPage, setCurrentPage] = useState('home');
 
@@ -759,6 +913,8 @@ export default function App() {
       case 'spices': return <SpicesPage />;
       case 'about': return <AboutPage />;
       case 'contact': return <ContactPage />;
+      case 'privacy': return <PrivacyPage />;
+      case 'terms': return <TermsPage />;
       default: return <HomePage navigate={setCurrentPage} />;
     }
   };
