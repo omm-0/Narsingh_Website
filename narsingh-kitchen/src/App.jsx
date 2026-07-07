@@ -787,52 +787,68 @@ const PrivacyPage = () => (
     intro="Effective Date: 07 July 2026 | Website: narsinghkitchen.in | Business Name: Narsingh Kitchens & Tiffin"
     sections={[
       {
+        title:"Effective Date",
+        content:"07 July 2026"
+      },
+      {
+        title:"Website",
+        content:"narsinghkitchen.in"
+      },
+      {
+        title:"Business Name",
+        content:"Narsingh Kitchens & Tiffin"
+      },
+      {
         title:"Introduction",
         content:"Narsingh Kitchens & Tiffin values your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, store, and protect your data when you use our website and future mobile application."
       },
       {
         title:"Information We Collect",
-        content:[
-          "Name, phone number, email address, delivery address, service inquiry, order details, feedback, and WhatsApp communication.",
-          "Device information such as browser type, IP address, and cookies if enabled."
-        ]
+        content:"Name, Phone Number, Email Address, Delivery Address, Service Inquiry, Order Details, Feedback, WhatsApp Communication, Device Information (browser type, IP address, cookies if enabled)."
       },
       {
         title:"Purpose of Collection",
-        content:"We collect this information to process food orders, manage tiffin subscriptions, deliver products, respond to inquiries, improve services, communicate order updates, and provide customer support."
+        content:"To process food orders, manage tiffin subscriptions, deliver products, respond to inquiries, improve services, communicate order updates, and provide customer support."
       },
       {
         title:"Payment Information",
         content:"Payments are processed through secure third-party payment gateways. We do not store your UPI PIN, banking credentials, or complete payment card details."
       },
       {
-        title:"Cookies and Third-Party Services",
-        content:[
-          "The website may use essential cookies to improve performance, remember user preferences, and enhance your browsing experience.",
-          "We may use services such as Google Maps, WhatsApp, email providers, and secure payment gateways, which have their own privacy policies."
-        ]
+        title:"Cookies",
+        content:"The website may use essential cookies to improve performance, remember user preferences, and enhance browsing experience."
       },
       {
-        title:"Data Sharing and Security",
-        content:[
-          "Customer information is never sold or rented. It may be shared only with delivery partners, payment providers, or authorities when legally required.",
-          "We implement reasonable technical and organizational measures to protect your data from unauthorized access, alteration, or disclosure. No internet transmission is completely secure."
-        ]
+        title:"Third-Party Services",
+        content:"We may use Google Maps, WhatsApp, Email services, and secure payment gateways. These third-party services have their own privacy policies."
       },
       {
-        title:"Retention, Children, and User Rights",
-        content:[
-          "Customer information is retained only as long as necessary for order fulfillment, legal obligations, or customer support.",
-          "Our services are not intended for children under 18 years of age without parental supervision.",
-          "You may request correction, update, or deletion of your personal information by contacting our support team."
-        ]
+        title:"Data Sharing",
+        content:"Customer information is never sold or rented. Information may only be shared with delivery partners, payment providers, or authorities when legally required."
       },
       {
-        title:"Updates and Contact",
-        content:[
-          "This Privacy Policy may be updated periodically. Continued use of the website constitutes acceptance of the revised policy.",
-          "For questions or requests, contact us at nksupport@gmail.com or +91 70006 25689."
-        ]
+        title:"Data Security",
+        content:"Reasonable technical and organizational measures are implemented to protect customer data from unauthorized access, alteration, or disclosure. No internet transmission is 100% secure."
+      },
+      {
+        title:"Data Retention",
+        content:"Customer information is retained only as long as necessary for order fulfillment, legal obligations, or customer support."
+      },
+      {
+        title:"Children's Privacy",
+        content:"Services are not intended for children under 18 years of age without parental supervision."
+      },
+      {
+        title:"User Rights",
+        content:"Users may request correction, update, or deletion of personal information by contacting customer support."
+      },
+      {
+        title:"Policy Updates",
+        content:"This Privacy Policy may be updated periodically. Continued use of the website constitutes acceptance of the revised policy."
+      },
+      {
+        title:"Contact",
+        content:"nksupport@gmail.com, +91 70006 25689"
       }
     ]}
   />
@@ -850,52 +866,67 @@ const TermsPage = () => (
       },
       {
         title:"Services Offered",
-        content:"We offer fast food ordering, monthly tiffin subscription, whole spices purchase, customer support, and future mobile application services."
+        content:"Fast Food Ordering, Monthly Tiffin Subscription, Whole Spices Purchase, Customer Support, Future Mobile Application Services."
       },
       {
-        title:"Eligibility and Orders",
-        content:[
-          "Users must provide accurate information while placing orders or submitting inquiries.",
-          "Orders are subject to availability and confirmation. We reserve the right to refuse or cancel orders in exceptional circumstances."
-        ]
+        title:"Eligibility",
+        content:"Users must provide accurate information while placing orders or submitting inquiries."
       },
       {
-        title:"Pricing, Payments, and Delivery",
-        content:[
-          "Prices may change without prior notice. Promotional offers are valid only during the specified period.",
-          "Accepted payment methods include UPI, cash on delivery, net banking, and supported digital wallets.",
-          "Estimated delivery times are approximate and may vary due to weather, traffic, festivals, or operational conditions."
-        ]
+        title:"Orders",
+        content:"Orders are subject to availability and confirmation. Narsingh Kitchens & Tiffin reserves the right to refuse or cancel orders in exceptional circumstances."
       },
       {
-        title:"Subscriptions and Products",
-        content:[
-          "Subscription plans are available monthly. Delivery schedules and menu may vary based on operational requirements.",
-          "Product images are for representation purposes. Actual packaging or appearance may differ slightly."
-        ]
+        title:"Pricing",
+        content:"Prices may change without prior notice. Promotional offers are valid only during the specified period."
       },
       {
-        title:"Cancellation, Refunds, and Intellectual Property",
-        content:[
-          "Cancellation requests are accepted only before food preparation or dispatch begins.",
-          "Refunds are processed only in eligible cases as defined in the Refund Policy.",
-          "All logos, graphics, website content, text, branding, and images are the intellectual property of Narsingh Kitchens & Tiffin and may not be copied without written permission."
-        ]
+        title:"Payments",
+        content:"Accepted payment methods include UPI, Cash on Delivery, Net Banking, and supported digital wallets."
       },
       {
-        title:"Website Usage and Liability",
-        content:[
-          "Users must not misuse the website, attempt unauthorized access, upload malicious code, or interfere with website functionality.",
-          "The company shall not be liable for indirect, incidental, or consequential damages arising from use of the website or services."
-        ]
+        title:"Delivery",
+        content:"Estimated delivery times are approximate and may vary due to weather, traffic, festivals, or operational conditions."
       },
       {
-        title:"External Links, Changes, and Governing Law",
-        content:[
-          "The website may contain links to third-party services. We are not responsible for their content or privacy practices.",
-          "These Terms & Conditions may be modified at any time. Updated versions will be published on the website.",
-          "These terms shall be governed by the laws of India and any disputes shall fall under the jurisdiction of the competent courts in Bhopal, Madhya Pradesh."
-        ]
+        title:"Tiffin Subscription",
+        content:"Subscription plans are available monthly. Delivery schedules and menu may vary based on operational requirements."
+      },
+      {
+        title:"Whole Spices",
+        content:"Product images are for representation purposes. Actual packaging or appearance may differ slightly."
+      },
+      {
+        title:"Cancellation",
+        content:"Cancellation requests are accepted only before food preparation or dispatch begins."
+      },
+      {
+        title:"Refunds",
+        content:"Refunds are processed only in eligible cases as defined in the Refund Policy."
+      },
+      {
+        title:"Intellectual Property",
+        content:"All logos, graphics, website content, text, branding, and images are the intellectual property of Narsingh Kitchens & Tiffin and may not be copied without written permission."
+      },
+      {
+        title:"Website Usage",
+        content:"Users must not misuse the website, attempt unauthorized access, upload malicious code, or interfere with website functionality."
+      },
+      {
+        title:"Limitation of Liability",
+        content:"The company shall not be liable for indirect, incidental, or consequential damages arising from use of the website or services."
+      },
+      {
+        title:"External Links",
+        content:"The website may contain links to third-party services. We are not responsible for their content or privacy practices."
+      },
+      {
+        title:"Changes to Terms",
+        content:"Terms & Conditions may be modified at any time. Updated versions will be published on the website."
+      },
+      {
+        title:"Governing Law",
+        content:"These Terms shall be governed by the laws of India. Any disputes shall fall under the jurisdiction of the competent courts in Bhopal, Madhya Pradesh."
       }
     ]}
   />
