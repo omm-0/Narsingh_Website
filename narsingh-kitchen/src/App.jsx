@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { 
   Menu, X, Phone, MessageCircle, MapPin, Clock, 
   ChefHat, Leaf, Package, Star, ArrowRight, 
@@ -196,8 +197,8 @@ const Footer = ({ navigate }) => (
           <ul className="space-y-4">
             <li><button onClick={() => {navigate('about'); window.scrollTo(0,0);}} className="text-gray-400 hover:text-white transition-colors text-sm">Our Story</button></li>
             <li><button onClick={() => {navigate('contact'); window.scrollTo(0,0);}} className="text-gray-400 hover:text-white transition-colors text-sm">Contact & Location</button></li>
-            <li><a href="/privacy" onClick={(event) => { event.preventDefault(); navigate('privacy'); }} className="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</a></li>
-            <li><a href="/terms" onClick={(event) => { event.preventDefault(); navigate('terms'); }} className="text-gray-400 hover:text-white transition-colors text-sm">Terms & Conditions</a></li>
+            <li><a href="/privacy" onClick={(event) => { event.preventDefault(); navigate('/privacy'); }} className="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</a></li>
+            <li><a href="/terms" onClick={(event) => { event.preventDefault(); navigate('/terms'); }} className="text-gray-400 hover:text-white transition-colors text-sm">Terms & Conditions</a></li>
           </ul>
         </div>
 
@@ -954,24 +955,19 @@ const getPageFromPath = (pathname = window.location.pathname) => {
 };
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState(() => getPageFromPath(window.location.pathname));
+  const navigate = useNavigate();
+  const location = useLocation();
+  const currentPage = getPageFromPath(location.pathname);
 
-  const navigateTo = (page, path) => {
-    const nextPath = path || (page === 'home' ? '/' : `/${page}`);
-    setCurrentPage(page);
-    window.history.pushState({}, '', nextPath);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  const navigateTo = (pageOrPath) => {
+    if (typeof pageOrPath !== 'string') return;
+    if (pageOrPath === 'home' || pageOrPath === '/') {
+      navigate('/');
+      return;
+    }
+    const path = pageOrPath.startsWith('/') ? pageOrPath : `/${pageOrPath}`;
+    navigate(path);
   };
-
-  useEffect(() => {
-    const handlePopState = () => {
-      setCurrentPage(getPageFromPath(window.location.pathname));
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
-
-    window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
-  }, []);
 
   const renderPage = () => {
     switch (currentPage) {
