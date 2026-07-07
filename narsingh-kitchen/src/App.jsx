@@ -196,8 +196,8 @@ const Footer = ({ navigate }) => (
           <ul className="space-y-4">
             <li><button onClick={() => {navigate('about'); window.scrollTo(0,0);}} className="text-gray-400 hover:text-white transition-colors text-sm">Our Story</button></li>
             <li><button onClick={() => {navigate('contact'); window.scrollTo(0,0);}} className="text-gray-400 hover:text-white transition-colors text-sm">Contact & Location</button></li>
-            <li><button onClick={() => {navigate('privacy'); window.scrollTo(0,0);}} className="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</button></li>
-            <li><button onClick={() => {navigate('terms'); window.scrollTo(0,0);}} className="text-gray-400 hover:text-white transition-colors text-sm">Terms & Conditions</button></li>
+            <li><a href="/privacy" onClick={(event) => { event.preventDefault(); navigate('privacy'); }} className="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</a></li>
+            <li><a href="/terms" onClick={(event) => { event.preventDefault(); navigate('terms'); }} className="text-gray-400 hover:text-white transition-colors text-sm">Terms & Conditions</a></li>
           </ul>
         </div>
 
@@ -932,13 +932,50 @@ const TermsPage = () => (
   />
 );
 
-export default function App() {
-  const [currentPage, setCurrentPage] = useState('home');
+const getPageFromPath = (pathname = window.location.pathname) => {
+  switch (pathname) {
+    case '/privacy':
+      return 'privacy';
+    case '/terms':
+      return 'terms';
+    case '/fastfood':
+      return 'fastfood';
+    case '/tiffin':
+      return 'tiffin';
+    case '/spices':
+      return 'spices';
+    case '/about':
+      return 'about';
+    case '/contact':
+      return 'contact';
+    default:
+      return 'home';
+  }
+};
 
-  // Simple router simulation
+export default function App() {
+  const [currentPage, setCurrentPage] = useState(() => getPageFromPath(window.location.pathname));
+
+  const navigateTo = (page, path) => {
+    const nextPath = path || (page === 'home' ? '/' : `/${page}`);
+    setCurrentPage(page);
+    window.history.pushState({}, '', nextPath);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    const handlePopState = () => {
+      setCurrentPage(getPageFromPath(window.location.pathname));
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
   const renderPage = () => {
     switch (currentPage) {
-      case 'home': return <HomePage navigate={setCurrentPage} />;
+      case 'home': return <HomePage navigate={navigateTo} />;
       case 'fastfood': return <FastFoodPage />;
       case 'tiffin': return <TiffinPage />;
       case 'spices': return <SpicesPage />;
@@ -946,19 +983,19 @@ export default function App() {
       case 'contact': return <ContactPage />;
       case 'privacy': return <PrivacyPage />;
       case 'terms': return <TermsPage />;
-      default: return <HomePage navigate={setCurrentPage} />;
+      default: return <HomePage navigate={navigateTo} />;
     }
   };
 
   return (
     <div className="font-sans text-[#1C1C1C] bg-[#FDFBF7] min-h-screen selection:bg-[#6B111A] selection:text-white flex flex-col">
-      <Header currentPage={currentPage} navigate={setCurrentPage} />
+      <Header currentPage={currentPage} navigate={navigateTo} />
       
       <main className="flex-grow">
         {renderPage()}
       </main>
 
-      <Footer navigate={setCurrentPage} />
+      <Footer navigate={navigateTo} />
       <FloatingContact />
     </div>
   );
