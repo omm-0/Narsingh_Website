@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import './App.css';
 import { 
   Menu, X, Phone, MessageCircle, MapPin, Clock, 
   ChefHat, Leaf, Package, Star, ArrowRight, 
@@ -252,13 +253,17 @@ const FloatingContact = () => (
 const HomePage = ({ navigate }) => (
   <div className="w-full">
     {/* Hero Section */}
-    <section className="relative min-h-[90vh] flex items-center bg-[#FDFBF7] pt-20 overflow-hidden">
+    <section className="relative min-h-[90vh] flex items-center bg-[#FDFBF7] pt-20 overflow-hidden food-hero">
+      <div className="food-hero-orb food-hero-orb-one" />
+      <div className="food-hero-orb food-hero-orb-two" />
+      <div className="food-hero-grid" />
       <div className="absolute top-0 right-0 w-1/2 h-full hidden lg:block bg-[#EAE6DF]">
          <ImagePlaceholder category="hero" className="w-full h-full" />
       </div>
       <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full relative z-10 grid lg:grid-cols-2 gap-12">
-        <div className="max-w-xl py-20">
-          <span className="text-[#6B111A] tracking-widest uppercase text-sm font-semibold mb-6 block">Welcome to Narsingh Kitchen</span>
+        <div className="max-w-xl py-20 relative z-10">
+          <span className="food-chip">Freshly made • Bhopal delivery</span>
+          <span className="text-[#6B111A] tracking-widest uppercase text-sm font-semibold mb-6 block mt-6">Welcome to Narsingh Kitchen</span>
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif text-[#1C1C1C] leading-[1.1] mb-8">
             Taste Rooted in <span className="italic text-[#6B111A]">Tradition</span>.
           </h1>
@@ -280,8 +285,8 @@ const HomePage = ({ navigate }) => (
         
         <div className="grid md:grid-cols-3 gap-8 mt-16">
           {/* Service 1 */}
-          <div className="group cursor-pointer" onClick={() => navigate('fastfood')}>
-            <div className="h-80 mb-6 overflow-hidden bg-[#FDFBF7]">
+          <div className="group cursor-pointer food-card" onClick={() => navigate('fastfood')}>
+            <div className="h-80 mb-6 overflow-hidden bg-[#FDFBF7] rounded-2xl">
               <ImagePlaceholder category="fastfood" className="w-full h-full" />
             </div>
             <h3 className="text-2xl font-serif text-[#1C1C1C] mb-3 group-hover:text-[#6B111A] transition-colors">Premium Fast Food</h3>
@@ -292,8 +297,8 @@ const HomePage = ({ navigate }) => (
           </div>
 
           {/* Service 2 */}
-          <div className="group cursor-pointer" onClick={() => navigate('tiffin')}>
-            <div className="h-80 mb-6 overflow-hidden bg-[#FDFBF7]">
+          <div className="group cursor-pointer food-card" onClick={() => navigate('tiffin')}>
+            <div className="h-80 mb-6 overflow-hidden bg-[#FDFBF7] rounded-2xl">
               <ImagePlaceholder category="tiffin" className="w-full h-full" />
             </div>
             <h3 className="text-2xl font-serif text-[#1C1C1C] mb-3 group-hover:text-[#6B111A] transition-colors">Tiffin Subscription</h3>
@@ -304,8 +309,8 @@ const HomePage = ({ navigate }) => (
           </div>
 
           {/* Service 3 */}
-          <div className="group cursor-pointer" onClick={() => navigate('spices')}>
-            <div className="h-80 mb-6 overflow-hidden bg-[#FDFBF7]">
+          <div className="group cursor-pointer food-card" onClick={() => navigate('spices')}>
+            <div className="h-80 mb-6 overflow-hidden bg-[#FDFBF7] rounded-2xl">
                <ImagePlaceholder category="spices" className="w-full h-full" />
             </div>
             <h3 className="text-2xl font-serif text-[#1C1C1C] mb-3 group-hover:text-[#6B111A] transition-colors">Authentic Masale</h3>
@@ -365,8 +370,8 @@ const HomePage = ({ navigate }) => (
     </section>
 
     {/* CTA Section */}
-    <section className="py-24 bg-[#111111] text-center px-6">
-      <div className="max-w-3xl mx-auto">
+    <section className="py-24 bg-[#111111] text-center px-6 food-cta">
+      <div className="max-w-3xl mx-auto relative z-10">
         <h2 className="text-4xl md:text-5xl font-serif text-white mb-6">Ready to Experience the Best?</h2>
         <p className="text-gray-400 text-lg mb-10">Contact us directly via WhatsApp or Phone to place an order or inquire about our services in Bhopal.</p>
         <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -984,7 +989,7 @@ export default function App() {
   };
 
   return (
-    <div className="font-sans text-[#1C1C1C] bg-[#FDFBF7] min-h-screen selection:bg-[#6B111A] selection:text-white flex flex-col">
+    <div className="font-sans text-[#1C1C1C] bg-[#FDFBF7] min-h-screen selection:bg-[#6B111A] selection:text-white flex flex-col app-shell">
       <Header currentPage={currentPage} navigate={navigateTo} />
       
       <main className="flex-grow">
